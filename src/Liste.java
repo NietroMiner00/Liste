@@ -31,15 +31,19 @@ public class Liste {
 	
 	private Element hatKopf = null;
 	
+	private Element hatVorgänger = null;
 	private Element hatZeiger = null;
 	
 	public void zumAnfang(){
 		hatZeiger = hatKopf;
+		hatVorgänger = null;
 	}
 	
 	public void vor(){
-		if(hatZeiger != null)
+		if(hatZeiger != null){
+			hatVorgänger = hatZeiger;
 			hatZeiger = hatZeiger.nachfolger();
+		}
 	}
 	
 	public boolean istDahinter(){
@@ -61,8 +65,24 @@ public class Liste {
 			Element alterNachfolger = hatZeiger.kenntNachfolger;
 			hatZeiger.setzeNachfolger(new Element(element, zAnzahl));
 			hatZeiger.nachfolger().setzeNachfolger(alterNachfolger);
+			vor();
 		}
 		zAnzahl++;
+	}
+	
+	public void entferne(){
+		if(hatZeiger == null)
+			return;
+		else if(hatVorgänger != null){
+			Element neuerNachfolger = hatZeiger.nachfolger();
+			hatVorgänger.setzeNachfolger(neuerNachfolger);
+			hatZeiger = hatVorgänger.nachfolger();
+		}
+		else{
+			hatKopf = hatKopf.nachfolger();
+			
+		}
+		zAnzahl--;
 	}
 	
 	public int laenge(){

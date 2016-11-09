@@ -10,6 +10,7 @@ public class Main {
 		l.fuegeEin("Hello");
 		
 		l.zumAnfang();
+		l.entferne();
 		l.vor();
 		
 		l.fuegeEin("Tschuess");
