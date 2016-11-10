@@ -24,6 +24,8 @@ public class Main {
 		System.out.println(l.aktuellePosition());
 		
 		l.zumAnfang();
+		
+		l.haengeAn("Auf Wiedersehen!");
 		while(!l.istDahinter()){
 			System.out.println((String)l.aktuellesElement());
 			l.vor();

@@ -84,7 +84,6 @@ public class Liste {
 			Element alterNachfolger = hatZeiger.kenntNachfolger;
 			hatZeiger.setzeNachfolger(new Element(element, zAnzahl));
 			hatZeiger.nachfolger().setzeNachfolger(alterNachfolger);
-			vor();
 		}
 		zAnzahl++;
 	}
@@ -100,6 +99,14 @@ public class Liste {
 			hatVorgänger.nachfolger().setzeNachfolger(alterNachfolger);
 		}
 		zAnzahl++;
+	}
+	
+	public void haengeAn(Object element){
+		int letztePosition = position;
+		while(!istDahinter())
+			vor();
+		fuegeDavorEin(element);
+		geheZuPosition(letztePosition);
 	}
 	
 	public void entferne(){
