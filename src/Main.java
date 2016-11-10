@@ -19,6 +19,11 @@ public class Main {
 		l.zumAnfang();
 		
 		l.ersetzeAktuelles("Halli Hallo");
+		
+		l.geheZuPosition(2);
+		System.out.println(l.aktuellePosition());
+		
+		l.zumAnfang();
 		while(!l.istDahinter()){
 			System.out.println((String)l.aktuellesElement());
 			l.vor();

@@ -33,6 +33,8 @@ public class Liste {
 	
 	private int zAnzahl = 0;
 	
+	private int position = 0;
+	
 	private Element hatKopf = null;
 	
 	private Element hatVorgänger = null;
@@ -41,13 +43,26 @@ public class Liste {
 	public void zumAnfang(){
 		hatZeiger = hatKopf;
 		hatVorgänger = null;
+		position = 0;
 	}
 	
 	public void vor(){
 		if(hatZeiger != null){
 			hatVorgänger = hatZeiger;
 			hatZeiger = hatZeiger.nachfolger();
+			position++;
+		}else{
+			zumAnfang();
 		}
+	}
+	
+	public void geheZuPosition(int index){
+		while(position != index)
+			vor();
+	}
+	
+	public int aktuellePosition(){
+		return position;
 	}
 	
 	public boolean istDahinter(){
