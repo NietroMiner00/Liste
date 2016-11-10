@@ -17,6 +17,10 @@ public class Liste {
             return kenntInhalt;
         }
         
+        public void setzeInhalt(Object element){
+        	kenntInhalt = element;
+        }
+        
         public Element nachfolger(){
             return kenntNachfolger;
         }
@@ -83,6 +87,10 @@ public class Liste {
 			
 		}
 		zAnzahl--;
+	}
+	
+	public void ersetzeAktuelles(Object element){
+		hatZeiger.setzeInhalt(element);
 	}
 	
 	public int laenge(){

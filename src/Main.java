@@ -16,6 +16,8 @@ public class Main {
 		l.fuegeEin("Tschuess");
 		
 		l.zumAnfang();
+		
+		l.ersetzeAktuelles("Halli Hallo");
 		while(!l.istDahinter()){
 			System.out.println((String)l.aktuellesElement());
 			l.vor();
