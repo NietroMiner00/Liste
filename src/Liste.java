@@ -74,6 +74,19 @@ public class Liste {
 		zAnzahl++;
 	}
 	
+	public void fuegeDavorEin(Object element){
+		if(hatKopf == null){
+			hatKopf = new Element(element, zAnzahl);
+			hatZeiger = hatKopf;
+		}
+		else{
+			Element alterNachfolger = hatZeiger;
+			hatVorgänger.setzeNachfolger(new Element(element, zAnzahl));
+			hatVorgänger.nachfolger().setzeNachfolger(alterNachfolger);
+		}
+		zAnzahl++;
+	}
+	
 	public void entferne(){
 		if(hatZeiger == null)
 			return;

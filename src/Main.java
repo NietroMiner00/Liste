@@ -14,6 +14,7 @@ public class Main {
 		l.vor();
 		
 		l.fuegeEin("Tschuess");
+		l.fuegeDavorEin("Hi");
 		
 		l.zumAnfang();
 		
