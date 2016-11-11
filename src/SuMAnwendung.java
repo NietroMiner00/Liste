@@ -13,6 +13,7 @@ public class SuMAnwendung extends EBAnwendung{
     private Textfeld hatNeuePosition;
     private Knopf hatKnopfHinzufuegen;
     private Knopf hatKnopfErsetzen;
+    private Knopf hatKnopfEntfernen;
     private Knopf hatKnopfVor;
     private Knopf hatKnopfZumAnfang;
     private Zeichenbereich liste;
@@ -40,6 +41,8 @@ public class SuMAnwendung extends EBAnwendung{
         hatKnopfHinzufuegen.setzeBearbeiterGeklickt("hatKnopfHinzufuegenGeklickt");
         hatKnopfErsetzen = new Knopf(182, 58, 100, 25, "Ersetzen");
         hatKnopfErsetzen.setzeBearbeiterGeklickt("hatKnopfErsetzenGeklickt");
+        hatKnopfEntfernen = new Knopf(39, 151, 104, 25, "Entfernen");
+        hatKnopfEntfernen.setzeBearbeiterGeklickt("hatKnopfEntfernenGeklickt");
         hatKnopfVor = new Knopf(38, 122, 105, 25, "Vor");
         hatKnopfVor.setzeBearbeiterGeklickt("hatKnopfVorGeklickt");
         hatKnopfZumAnfang = new Knopf(39, 93, 104, 25, "Zum Anfang");
@@ -72,6 +75,11 @@ public class SuMAnwendung extends EBAnwendung{
         }
     	darstellen();
     }
+    
+    public void hatKnopfEntfernenGeklickt(){
+    	l.entferne();
+    	darstellen();
+    }
 
     public void hatKnopfVorGeklickt(){
         l.vor();
@@ -92,7 +100,7 @@ public class SuMAnwendung extends EBAnwendung{
     	int aktuellePosition = l.aktuellePosition();
     	l.zumAnfang();
     	while(!l.istDahinter()){
-    		if(l.aktuellePosition() == aktuellePosition)
+    		if(l.aktuellePosition() == aktuellePosition&&l.aktuellesElement() != null)
     			liste.haengeAn("*");
     		liste.haengeAn((String)l.aktuellesElement() + "\n");
     		l.vor();
